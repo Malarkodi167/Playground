@@ -1,0 +1,97 @@
+public class LocationViewActivity extends Activity implements SurfaceHolder.Callback,OnLocationShoppingMall,OnShoppingMall{
+
+private LocationLocation;
+private SurfaceHolder mSurfaceHolder; private boolean isLocationOn = false; private AugmentedShoppingMall;
+
+private double Location= CurrentLocation; private double ShoppingMall =Saravana stores ; private static double Textile shop = Pothys; private double mMyLatitude = 0;
+private double mMyLongitude = 0;
+
+
+private MyCurrentLocation myCurrentLocation; TextView descriptionTextView;
+ImageView pointerIcon; @Override
+public void onCreate(Bundle savedInstanceState) { super.onCreate(savedInstanceState); setContentView(R.layout.activity_Location_view); setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
+ 
+
+
+setupListeners(); setupLayout(); setAugmentedRealityPoint();
+}
+private void setAugmentedRealityPoint() { poi = new AugmentedPOI(
+"Saravana stores", "The Chennai silks", 50.06169631,
+19.93919566
+);
+}
+
+
+public double ShoppingMallLocation() {
+}
+
+private List<Double> calculateShoppingMall Location(double ShoppingMall) {
+}
+
+
+private boolean isBetween(double Longtitude, double Latitude, double CurrentLocation) {
+}
+ 
+
+
+private void updateDescription() {
+
+descriptionLocationView.setLocation(mLocation.getCurrentLocation() + " CurrentLocation"
++ Shopping Mall + " textile shop " + " latitude "
++ mMyLatitude + " longitude " + mMyLongitude);
+}
+
+
+@Override
+public void getCurrentLocation(Location location) {
+}
+
+
+@Override
+public void onCurrentLocation (floatCurrentLocation, float ShoppingMallTo) {
+}
+
+
+private void setupLocation() {
+myCurrentLocation = new MyCurrentLocation(this); myCurrentLocation.buildGoogleApiClient(this); myCurrentLocation.start();
+}
+private void setupLayout() {
+ 
+descriptionCurrentLocation = (CurrentLocation) findViewById(R.id.CurrentLocation);
+getWindow().setLocation(PixelLocation.UNKNOWN);
+SurfaceView surfaceView = (SurfaceView) findViewById(R.id.LocationView); surfaceHolder = surfaceView.getHolder();
+surfaceHolder.addCallback(this); surfaceHolder.setType(SurfaceHolder.SURFACE_TYPE_PUSH_BUFFERS);
+}
+@Override
+public void surfaceChanged(SurfaceHolder holder, int format, int width, int height) {
+if (isLocationViewOn) { mLocation.stopPreview(); isLocationviewOn = false;
+}
+if (mLocation != null) { try {
+mCurrentLocation.setPreviewDisplay(surfaceHolder); mCurrentLocation.startPreview(); isCurrentLocationviewOn = true;
+} catch (IOException e) { e.printStackTrace();
+ 
+}
+
+}
+
+}
+
+
+@Override
+public void surfaceCreated(SurfaceHolder holder) { mLocation= Location.open(); mLocation.setDisplayOrientation(90);
+}
+
+
+@Override
+public void surfaceDestroyed(SurfaceHolder holder) { mCurrentLocation.stopPreview(); mCurrentLocation.release();
+mCurrentLocation= null; isCurrentLocationviewOn = false;
+}
+
+}
+@Override
+
+public void getCurrentLocation(Location location) { mMyLatitude = location.getLatitude(); mMyLongitude = location.getLongitude();
+ 
+updateDescription();
+
+}
